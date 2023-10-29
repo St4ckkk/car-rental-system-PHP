@@ -1,0 +1,179 @@
+.title h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.title p {
+  color: #f2f2f2;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.button {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.button .btn {
+  border-radius: 5px;
+  background: #04dbc0;
+}
+
+.button .btn:hover {
+  background: #9b51e0;
+  border: 1px solid #9b51e0;
+}
+
+.button .btn .angle_arrow i {
+  color: #04dbc0;
+}
+
+.component {
+  margin-top: 50px;
+  padding: 20px 0px;
+}
+
+.component .choose_us {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 34px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.images h3 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.service h3 {
+  text-align: center;
+}
+
+.tag {
+  text-align: center;
+}
+
+.description p {
+  text-align: center;
+}
+
+.car_image {
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.smile_image {
+  margin-left: 90px;
+  margin-bottom: 20px;
+}
+
+.love_image {
+  margin-left: 110px;
+  margin-bottom: 20px;
+}
+
+.car_text {
+  margin-left: 15px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.support_service {
+  margin-left: 80px;
+  margin-top: -30px;
+}
+
+.support {
+  margin-top: -30px;
+  background-color: #5856d6;
+  min-height: 65vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.home {
+  height: 100vh;
+  position: relative;
+}
+
+video {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.home-content {
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  top: 200px;
+  color: #fff;
+  z-index: 3;
+}
+
+.home-content h1 {
+  color: #ffffff;
+  font-weight: 1000;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 1.1;
+}
+
+.home-content p {
+  color: #e6e6e6;
+  width: 800px;
+  margin-left: -80px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.home-content h3 {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 25px;
+}
+
+.home-content button {
+  display: block;
+  font-size: 20px;
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  background: #04dbc0;
+  color: #fff;
+  margin: 50px auto 0;
+  padding: 16px 30px;
+  cursor: pointer;
+}
+
+.home-content button:hover {
+  background: #9b51e0;
+  border: 1px solid #9b51e0;
+}
+
+.home-content button a {
+  text-decoration: none;
+  color: #ffffff;
+}
