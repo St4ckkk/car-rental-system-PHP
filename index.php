@@ -129,14 +129,14 @@ error_reporting(0);
   <section style="margin-top:-10px" data-aos="fade-up" data-aos-duration="3000">
     <div class="home">
       <video autoplay muted loop>
-        <source src="assets/images/video.mp4" type="video/mp4" />
+        <source src="assets/images/cars.mp4" type="video/mp4" />
       </video>
       <div class="over"></div>
       <div class="home-content">
         <h1>Our Fleet, Your Fleet</h1>
         <p>We know the difference is in the details and that’s why our car rental services, in the tourism and business
           industry, stand out for their quality and good taste, to offer you an unique experience</p>
-        <h3>Call Now +91 7013189730</h3>
+        <h3>Call Now +639 1234 567809</h3>
         <button><a href="car-listing.php">DISCOVER</a></button>
       </div>
     </div>
@@ -151,17 +151,17 @@ error_reporting(0);
       <div class="container" style="margin-top:30px;">
         <div class="row">
           <div class="col-sm-4">
-            <img src="assets/images/car1.png" width="25%" class="car_image">
+            <img src="assets/images/car.png" width="25%" class="car_image">
             <h4 class="car_text">Variety of Brands</h4>
             <p class="car_description">We Provide various brands to customers</p>
           </div>
-          <div class="col-sm-4" style="margin-top:17px">
-            <img src="assets/images/car" width="18%" class="smile_image">
+          <div class="col-sm-4">
+            <img src="assets/images/public-relation.png" width="25%" class="smile_image">
             <h4 class="car_text">Best Rate Guranttee</h4>
             <p>We have best rated and gurantted cars</p>
           </div>
           <div class="col-sm-4">
-            <img src="assets/images/support.png" width="20%" class="love_image">
+            <img src="assets/images/happy.png" width="25%" class="love_image">
             <h4 class="car_text">Awesome customer support</h4>
             <p class="car_description">We receive awesome customer support</p>
           </div>

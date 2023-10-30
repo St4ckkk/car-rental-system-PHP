@@ -126,11 +126,12 @@ if (strlen($_SESSION['login']) == 0) {
         <section class="user_profile inner_pages">
           <div class="container">
             <div class="user_profile_info gray-bg padding_4x4_40">
-              <div class="upload_user_logo"> <img src="assets/images/dealer-logo.jpg" alt="image">
+              <div class="upload_user_logo"> <img src="assets/images/dealer-logo.png" alt="image">
               </div>
 
               <div class="dealer_info">
                 <h5>
+                  <span class="text-muted">Name: </span>
                   <?php echo htmlentities($result->FullName); ?>
                 </h5>
                 <p>
@@ -162,7 +163,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                   <div class="form-group">
-                    <label class="control-label">Testimonail</label>
+                    <label class="control-label">Testimonial</label>
                     <textarea class="form-control white_bg" name="testimonial" rows="4" required=""></textarea>
                   </div>
 

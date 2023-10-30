@@ -87,7 +87,7 @@ background: #04dbc0;
           </div>
         </div>
         <div class="col-md-6 col-md-pull-6">
-          <p class="copy-right">Copyright &copy; 2022 Quickars</p>
+          <p class="copy-right">Copyright &copy; 2023 Quickars</p>
         </div>
       </div>
     </div>
