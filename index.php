@@ -173,60 +173,15 @@ error_reporting(0);
   </section>
 
 
-
-  <!-- Fun Facts
-  <section class="fun-facts-section">
-    <div class="container div_zindex">
-      <div class="row">
-        <div class="col-lg-3 col-xs-6 col-sm-3">
-          <div class="fun-facts-m">
-            <div class="cell" data-aos="fade-right" data-aos-duration="3000">
-              <h2><i class="fa fa-calendar" aria-hidden="true"></i>05+</h2>
-              <p>Years In Business</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6 col-sm-3">
-          <div class="fun-facts-m">
-            <div class="cell" data-aos="fade-right" data-aos-duration="3000">
-              <h2><i class="fa fa-car" aria-hidden="true"></i>400+</h2>
-              <p>Cars are available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6 col-sm-3">
-          <div class="fun-facts-m">
-            <div class="cell" data-aos="fade-left" data-aos-duration="3000">
-              <h2><i class="fa fa-car" aria-hidden="true"></i>200+</h2>
-              <p>Used Cars For rent</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6 col-sm-3">
-          <div class="fun-facts-m">
-            <div class="cell" data-aos="fade-left" data-aos-duration="3000">
-              <h2><i class="fa fa-user-circle-o" aria-hidden="true"></i>500+</h2>
-              <p>Satisfied Customers</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="dark-overlay"></div>
-  </section>
-  -->
-
   <!-- /Testimonial-->
   <div class="container" style="margin-top:40px;margin-bottom: -10px;" id="cars">
     <div class="service">
-      <h3>Testimonials</h3>
+      <h3>Reviews</h3>
     </div>
   </div>
 
-  <?php include('includes/testimonial.php'); ?>
-  <!--Footer -->
-  <?php include('includes/footer.php'); ?>
-  <!-- /Footer-->
+  <?php include('includes/review.php'); ?>
+
 
   <!--Back to top-->
   <div id="back-top" class="back-top"> <a href="#top" style="background-color: #04dbc0;"><i class="fa fa-angle-up"

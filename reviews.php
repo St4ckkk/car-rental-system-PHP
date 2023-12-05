@@ -20,9 +20,8 @@ if (strlen($_SESSION['login']) == 0) {
     } else {
       $error = "Something went wrong. Please try again";
     }
-
   }
-  ?>
+?>
   <!DOCTYPE HTML>
   <html lang="en">
 
@@ -49,19 +48,15 @@ if (strlen($_SESSION['login']) == 0) {
 
     <!-- SWITCHER -->
     <link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-    <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all"
-      data-default-color="true" />
+    <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-      href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-      href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-      href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -100,11 +95,11 @@ if (strlen($_SESSION['login']) == 0) {
       <div class="container">
         <div class="page-header_wrap">
           <div class="page-heading">
-            <h1>Post Testimonial</h1>
+            <h1>Post Review</h1>
           </div>
           <ul class="coustom-breadcrumb">
             <li><a href="#">Home</a></li>
-            <li>Post Testimonial</li>
+            <li>Give Reviews</li>
           </ul>
         </div>
       </div>
@@ -137,81 +132,80 @@ if (strlen($_SESSION['login']) == 0) {
                 <p>
                   <?php echo htmlentities($result->Address); ?><br>
                   <?php echo htmlentities($result->City); ?>&nbsp;
-                  <?php echo htmlentities($result->Country);
-      }
-    } ?>
-            </p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-3 col-sm-3">
-            <?php include('includes/sidebar.php'); ?>
-            <div class="col-md-6 col-sm-8">
-              <div class="profile_wrap">
-                <h5 class="uppercase underline">Post a Testimonial</h5>
-                <?php if ($error) { ?>
-                  <div class="errorWrap"><strong>ERROR</strong>:
-                    <?php echo htmlentities($error); ?>
-                  </div>
-                <?php } else if ($msg) { ?>
-                    <div class="succWrap"><strong>SUCCESS</strong>:
-                    <?php echo htmlentities($msg); ?>
-                    </div>
-                <?php } ?>
-                <form method="post">
-
-
-                  <div class="form-group">
-                    <label class="control-label">Testimonial</label>
-                    <textarea class="form-control white_bg" name="testimonial" rows="4" required=""></textarea>
-                  </div>
-
-
-                  <div class="form-group">
-                    <button type="submit" name="submit" class="btn">Save <span class="angle_arrow"><i
-                          class="fa fa-angle-right" aria-hidden="true"></i></span></button>
-                  </div>
-                </form>
+              <?php echo htmlentities($result->Country);
+            }
+          } ?>
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-    </section>
-    <!--/Profile-setting-->
 
-    <<!--Footer -->
-      <?php include('includes/footer.php'); ?>
-      <!-- /Footer-->
+            <div class="row">
+              <div class="col-md-3 col-sm-3">
+                <?php include('includes/sidebar.php'); ?>
+                <div class="col-md-6 col-sm-8">
+                  <div class="profile_wrap">
+                    <h5 class="uppercase underline">Write a Review</h5>
+                    <?php if ($error) { ?>
+                      <div class="errorWrap"><strong>ERROR</strong>:
+                        <?php echo htmlentities($error); ?>
+                      </div>
+                    <?php } else if ($msg) { ?>
+                      <div class="succWrap"><strong>SUCCESS</strong>:
+                        <?php echo htmlentities($msg); ?>
+                      </div>
+                    <?php } ?>
+                    <form method="post">
 
-      <!--Back to top-->
-      <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
-      <!--/Back to top-->
 
-      <!--Login-Form -->
-      <?php include('includes/login.php'); ?>
-      <!--/Login-Form -->
+                      <div class="form-group">
+                        <label class="control-label">Review</label>
+                        <textarea class="form-control white_bg" name="testimonial" rows="4" required=""></textarea>
+                      </div>
 
-      <!--Register-Form -->
-      <?php include('includes/registration.php'); ?>
 
-      <!--/Register-Form -->
+                      <div class="form-group">
+                        <button type="submit" name="submit" class="btn">Save <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <!--/Profile-setting-->
 
-      <!--Forgot-password-Form -->
-      <?php include('includes/forgotpassword.php'); ?>
-      <!--/Forgot-password-Form -->
+        <<!--Footer -->
+          <?php include('includes/footer.php'); ?>
+          <!-- /Footer-->
 
-      <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
-      <script src="assets/js/interface.js"></script>
-      <!--Switcher-->
-      <script src="assets/switcher/js/switcher.js"></script>
-      <!--bootstrap-slider-JS-->
-      <script src="assets/js/bootstrap-slider.min.js"></script>
-      <!--Slider-JS-->
-      <script src="assets/js/slick.min.js"></script>
-      <script src="assets/js/owl.carousel.min.js"></script>
+          <!--Back to top-->
+          <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+          <!--/Back to top-->
+
+          <!--Login-Form -->
+          <?php include('includes/login.php'); ?>
+          <!--/Login-Form -->
+
+          <!--Register-Form -->
+          <?php include('includes/registration.php'); ?>
+
+          <!--/Register-Form -->
+
+          <!--Forgot-password-Form -->
+          <?php include('includes/forgotpassword.php'); ?>
+          <!--/Forgot-password-Form -->
+
+          <!-- Scripts -->
+          <script src="assets/js/jquery.min.js"></script>
+          <script src="assets/js/bootstrap.min.js"></script>
+          <script src="assets/js/interface.js"></script>
+          <!--Switcher-->
+          <script src="assets/switcher/js/switcher.js"></script>
+          <!--bootstrap-slider-JS-->
+          <script src="assets/js/bootstrap-slider.min.js"></script>
+          <!--Slider-JS-->
+          <script src="assets/js/slick.min.js"></script>
+          <script src="assets/js/owl.carousel.min.js"></script>
 
   </body>
 

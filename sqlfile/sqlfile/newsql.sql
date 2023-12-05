@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 09:05 AM
+-- Generation Time: Dec 05, 2023 at 07:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -67,7 +67,10 @@ INSERT INTO `tblbooking` (`id`, `userEmail`, `VehicleId`, `FromDate`, `ToDate`, 
 (2, 'test@gmail.com', 3, '30/06/2017', '02/07/2017', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco', 2, '2017-06-26 20:15:43'),
 (3, 'test@gmail.com', 4, '02/07/2017', '07/07/2017', 'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ', 0, '2017-06-26 21:10:06'),
 (4, 'testemail@gmail.com', 7, '2023-10-30', '2023-10-31', '12345678901', 1, '2023-10-30 07:34:28'),
-(5, 'testemail@gmail.com', 7, '2023-10-30', '2023-10-31', '12345678901', 2, '2023-10-30 07:34:50');
+(5, 'testemail@gmail.com', 7, '2023-10-30', '2023-10-31', '12345678901', 2, '2023-10-30 07:34:50'),
+(6, 'testemail@gmail.com', 7, '2023-10-30', '2023-10-31', '12345678901', 0, '2023-10-30 08:27:37'),
+(7, 'testemail@gmail.com', 7, '2023-11-07', '2023-11-20', '12345678901', 1, '2023-11-07 04:20:25'),
+(8, 'keyanandydelgado@gmail.com', 9, '2023-12-05', '2023-12-10', '09262408442', 1, '2023-12-05 06:08:52');
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,7 @@ CREATE TABLE `tblbrands` (
 --
 
 INSERT INTO `tblbrands` (`id`, `BrandName`, `CreationDate`, `UpdationDate`) VALUES
-(9, 'TEST BRAND CAR', '2023-10-30 06:51:01', NULL);
+(10, 'Tesla', '2023-12-05 05:53:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,8 @@ CREATE TABLE `tblcontactusquery` (
 --
 
 INSERT INTO `tblcontactusquery` (`id`, `name`, `EmailId`, `ContactNumber`, `Message`, `PostingDate`, `status`) VALUES
-(2, 'TEST FULL NAME', 'testemail@gmail.com', '12345678901', 'test test tes', '2023-10-30 07:19:40', 1);
+(2, 'TEST FULL NAME', 'testemail@gmail.com', '12345678901', 'test test tes', '2023-10-30 07:19:40', 1),
+(3, 'Keyan Andy Delgado', 'keyanandydelgado@gmail.com', '09262408442', 'QWEQ', '2023-12-05 05:40:53', 1);
 
 -- --------------------------------------------------------
 
@@ -195,7 +199,9 @@ CREATE TABLE `tbltestimonial` (
 INSERT INTO `tbltestimonial` (`id`, `UserEmail`, `Testimonial`, `PostingDate`, `status`) VALUES
 (1, 'test@gmail.com', 'Test Test', '2017-06-18 07:44:31', 1),
 (2, 'test@gmail.com', '\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilis', '2017-06-18 07:46:05', 1),
-(3, 'testemail@gmail.com', 'TEST TESTIMONIAL', '2023-10-30 07:47:12', NULL);
+(3, 'testemail@gmail.com', 'TEST TESTIMONIAL', '2023-10-30 07:47:12', NULL),
+(4, 'testemail@gmail.com', 'AMPOGI NI KEYAN', '2023-10-30 08:28:03', NULL),
+(5, 'testemail@gmail.com', 'this is a testimonial', '2023-11-07 04:21:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -222,7 +228,7 @@ CREATE TABLE `tblusers` (
 --
 
 INSERT INTO `tblusers` (`id`, `FullName`, `EmailId`, `Password`, `ContactNo`, `dob`, `Address`, `City`, `Country`, `RegDate`, `UpdationDate`) VALUES
-(6, 'TEST FULL NAME', 'testemail@gmail.com', '202cb962ac59075b964b07152d234b70', '12345678091', '2023-10-30', '', '', '', '2023-10-30 06:56:44', '2023-10-30 07:36:07');
+(7, 'Keyan Andy Delgado', 'keyanandydelgado@gmail.com', '202cb962ac59075b964b07152d234b70', '09262408442', '2002-05-22', 'Prk. Sampaguita Poblacion Of Sto Nino South Cotabato', 'South Cotabato', 'Philippines', '2023-12-05 05:46:51', '2023-12-05 05:55:13');
 
 -- --------------------------------------------------------
 
@@ -265,8 +271,7 @@ CREATE TABLE `tblvehicles` (
 --
 
 INSERT INTO `tblvehicles` (`id`, `VehiclesTitle`, `VehiclesBrand`, `VehiclesOverview`, `PricePerDay`, `FuelType`, `ModelYear`, `SeatingCapacity`, `Vimage1`, `Vimage2`, `Vimage3`, `Vimage4`, `Vimage5`, `AirConditioner`, `PowerDoorLocks`, `AntiLockBrakingSystem`, `BrakeAssist`, `PowerSteering`, `DriverAirbag`, `PassengerAirbag`, `PowerWindows`, `CDPlayer`, `CentralLocking`, `CrashSensor`, `LeatherSeats`, `RegDate`, `UpdationDate`) VALUES
-(6, 'TEST', 2, 'TEST', 120, 'Petrol', 2002, 5, 'cat.png', 'cat.png', 'cat.png', 'cat.png', 'cat.png', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-10-29 09:30:56', NULL),
-(7, 'TEST CAR', 9, 'TEST CAR ONLY', 100, 'Petrol', 2023, 4, 'bean.jpg', 'download (4).jpg', 'maxresdefault.jpg', 'hqdefault.jpg', 'download (4).jpg', 1, 1, NULL, NULL, 1, 1, NULL, NULL, 1, 1, NULL, NULL, '2023-10-30 06:55:14', NULL);
+(9, 'Model Y', 10, 'Model Y is fully electric, so you never need to visit a gas station again. If you charge overnight at home, you can wake up to a full battery every morning. And when you’re on the road, it’s easy to plug in along the way—at any public station or with the Tesla charging network. We currently have over 50,000 Superchargers worldwide, with six new locations opening every week. Chat with a Tesla Advisor to learn more about Model Y or schedule a demo drive today.', 399, 'Electric', 2020, 7, 'safety-model-y-hero.png', '2020_tesla_model-y_4dr-suv_performance_fq_oem_1_1600.jpg', 'Tesla_Model_Ysmall 5.jpg', '275815406_Andrew-Crowley-1_trans_NvBQzQNjv4BqJgZjG4XE8BZGTSy9SLp5TPzOLYmPFb6ugTiCBoqgtqk.jpg', '2020-tesla-model-y-performance-105-1620660805.jpg', 1, 1, NULL, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2023-12-05 06:06:43', NULL);
 
 --
 -- Indexes for dumped tables
@@ -346,13 +351,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `tblbooking`
 --
 ALTER TABLE `tblbooking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblbrands`
 --
 ALTER TABLE `tblbrands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tblcontactusinfo`
@@ -364,7 +369,7 @@ ALTER TABLE `tblcontactusinfo`
 -- AUTO_INCREMENT for table `tblcontactusquery`
 --
 ALTER TABLE `tblcontactusquery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblpages`
@@ -382,19 +387,19 @@ ALTER TABLE `tblsubscribers`
 -- AUTO_INCREMENT for table `tbltestimonial`
 --
 ALTER TABLE `tbltestimonial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblusers`
 --
 ALTER TABLE `tblusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblvehicles`
 --
 ALTER TABLE `tblvehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

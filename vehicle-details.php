@@ -343,10 +343,7 @@ if (isset($_POST['submit'])) {
         <aside class="col-md-3" style="margin-left: -200px;width:480px;">
 
           <div class="share_vehicle" style="text-align: center;justify-content: center;">
-            <p><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> <a href="#"><i
-                  class="fa fa-twitter-square" aria-hidden="true"></i></a> <a href="#"><i class="fa fa-linkedin-square"
-                  aria-hidden="true"></i></a> <a href="#"><i class="fa fa-google-plus-square"
-                  aria-hidden="true"></i></a> </p>
+            <p>Booking Info</p>
           </div>
           <div class="sidebar_widget">
             <div class="widget_heading">
@@ -399,12 +396,12 @@ if (isset($_POST['submit'])) {
             <div class="col-md-3 grid_listing">
               <div class="product-listing-m gray-bg">
                 <div class="product-listing-img"> <a
-                    href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img
+                    href="vehicle-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img
                       src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive"
                       alt="image" /> </a>
                 </div>
                 <div class="product-listing-content">
-                  <h5><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>">
+                  <h5><a href="vehicle-details.php?vhid=<?php echo htmlentities($result->id); ?>">
                       <?php echo htmlentities($result->BrandName); ?> ,
                       <?php echo htmlentities($result->VehiclesTitle); ?>
                     </a></h5>

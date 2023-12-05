@@ -183,6 +183,7 @@ if (isset($_POST['login'])) {
   <link rel="stylesheet" href="css/fileinput.min.css">
   <link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="../assets/images/favicon-icon/favicon.png" type="image/x-icon">
 </head>
 
 <body>

@@ -16,11 +16,10 @@ if (isset($_POST['send'])) {
   $query->execute();
   $lastInsertId = $dbh->lastInsertId();
   if ($lastInsertId) {
-    $msg = "Query Sent. We will contact you shortly";
+    $msg = "Message Sent. We will contact you shortly";
   } else {
     $error = "Something went wrong. Please try again";
   }
-
 }
 ?>
 <!DOCTYPE HTML>
@@ -49,8 +48,7 @@ if (isset($_POST['send'])) {
 
   <!-- SWITCHER -->
   <link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all"
-    data-default-color="true" />
+  <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
@@ -58,12 +56,9 @@ if (isset($_POST['send'])) {
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
 
   <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144"
-    href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114"
-    href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72"
-    href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="assets/images/mainlogo.png">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -159,9 +154,9 @@ if (isset($_POST['send'])) {
               <?php echo htmlentities($error); ?>
             </div>
           <?php } else if ($msg) { ?>
-              <div class="succWrap"><strong>SUCCESS</strong>:
+            <div class="succWrap"><strong>SUCCESS</strong>:
               <?php echo htmlentities($msg); ?>
-              </div>
+            </div>
           <?php } ?>
           <div class="contact_form">
             <form method="post">
@@ -215,7 +210,7 @@ if (isset($_POST['send'])) {
                     <div class="contact_info_m"><a href="mailto:contact@exampleurl.com">+639 1234 567809</a></div>
                   </li>
                 </ul>
-              <?php }
+            <?php }
             } ?>
           </div>
         </div>
@@ -230,8 +225,7 @@ if (isset($_POST['send'])) {
   <!-- /Footer-->
 
   <!--Back to top-->
-  <div id="back-top" class="back-top"> <a href="#top" style="background-color: #04dbc0;"><i class="fa fa-angle-up"
-        aria-hidden="true"></i> </a> </div>
+  <div id="back-top" class="back-top"> <a href="#top" style="background-color: #04dbc0;"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
   <!--/Back to top-->
 
   <!--Login-Form -->
@@ -261,6 +255,5 @@ if (isset($_POST['send'])) {
 
 </body>
 
-<!-- Mirrored from themes.webmasterdriver.net/carforyou/demo/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 16 Jun 2017 07:26:55 GMT -->
 
 </html>

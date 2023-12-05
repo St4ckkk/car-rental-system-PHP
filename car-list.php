@@ -13,7 +13,7 @@ error_reporting(0);
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="keywords" content="">
   <meta name="description" content="">
-  <title>Quickars | Book Cars</title>
+  <title>Quickars</title>
   <!--Bootstrap -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
   <!--Custome Style -->
@@ -47,19 +47,14 @@ error_reporting(0);
 </head>
 
 <body>
-
-  <!-- Start Switcher -->
-  <?php include('includes/colorswitcher.php'); ?>
-  <!-- /Switcher -->
-
   <!--Header-->
   <?php include('includes/header.php'); ?>
   <!-- /Header -->
-
   <style type="text/css">
     .image {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('includes/images/slide2.jpg');
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('includes/images/slide1.jpg');
       min-height: 75vh;
+
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -98,9 +93,13 @@ error_reporting(0);
     .image p {
       text-align: center;
     }
+
+    .btn {
+      background-color: #04dbc0;
+    }
   </style>
   <div class="image">
-    <div class="sidebar_widget" style="width:500px;margin-top: 120px; background: rgba(0,0,0,0.04);
+    <div class="sidebar_widget" style="width:500px;margin-top: 120px; background: rgba(0,0,0, 0.5);
   box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);border: 1px solid #333;">
       <div class="widget_heading">
         <h5 style="color:#ffffff">Find Your Car </h5>
@@ -108,7 +107,7 @@ error_reporting(0);
       <div class="sidebar_filter">
         <form action="search-carresult.php" method="post">
           <div class="form-group select">
-            <select class="form-control" name="brand">
+            <select class="form-control" name="brand" required>
               <option>Select Brand</option>
 
               <?php $sql = "SELECT * from  tblbrands ";
@@ -125,7 +124,7 @@ error_reporting(0);
             </select>
           </div>
           <div class="form-group select">
-            <select class="form-control" name="fueltype">
+            <select class="form-control" name="fueltype" required>
               <option>Select Fuel Type</option>
               <option value="Petrol">Petrol</option>
               <option value="Diesel">Diesel</option>
@@ -148,16 +147,13 @@ error_reporting(0);
     <div class="container">
       <div class="row">
         <div class="col-md-9 col-md-push-3">
-          <div class="result-sorting-wrapper" style="margin-left:70px">
+          <div class="result-sorting-wrapper" style="margin-left: 70px;border: 1px solid #cccccc;">
             <div class="sorting-count">
               <?php
               //Query for Listing count
-              $brand = $_POST['brand'];
-              $fueltype = $_POST['fueltype'];
-              $sql = "SELECT id from tblvehicles where tblvehicles.VehiclesBrand=:brand and tblvehicles.FuelType=:fueltype";
+              $sql = "SELECT id from tblvehicles";
               $query = $dbh->prepare($sql);
-              $query->bindParam(':brand', $brand, PDO::PARAM_STR);
-              $query->bindParam(':fueltype', $fueltype, PDO::PARAM_STR);
+              $query->bindParam(':vhid', $vhid, PDO::PARAM_STR);
               $query->execute();
               $results = $query->fetchAll(PDO::FETCH_OBJ);
               $cnt = $query->rowCount();
@@ -166,12 +162,8 @@ error_reporting(0);
             </div>
           </div>
 
-          <?php
-
-          $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid  from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand where tblvehicles.VehiclesBrand=:brand and tblvehicles.FuelType=:fueltype";
+          <?php $sql = "SELECT tblvehicles.*,tblbrands.BrandName,tblbrands.id as bid  from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand";
           $query = $dbh->prepare($sql);
-          $query->bindParam(':brand', $brand, PDO::PARAM_STR);
-          $query->bindParam(':fueltype', $fueltype, PDO::PARAM_STR);
           $query->execute();
           $results = $query->fetchAll(PDO::FETCH_OBJ);
           $cnt = 1;
@@ -181,15 +173,17 @@ error_reporting(0);
                 <div class="product-listing-img"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="Image" /> </a>
                 </div>
                 <div class="product-listing-content">
-                  <h5><a href="vehicle-details.php?vhid=<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->BrandName); ?> , <?php echo htmlentities($result->VehiclesTitle); ?></a></h5>
-                  <p class="list-price"><span>&#8369;</span><?php echo htmlentities($result->PricePerDay); ?> Per Day</p>
+                  <h5><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->BrandName); ?> , <?php echo htmlentities($result->VehiclesTitle); ?></a></h5>
+                  <p class="list-price"><i class="fa fa-inr" aria-hidden="true"></i> <?php echo htmlentities($result->PricePerDay); ?> Per Day</p>
                   <ul>
                     <li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity); ?> seats</li>
                     <li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear); ?> model</li>
                     <li><i class="fa fa-car" aria-hidden="true"></i><?php echo htmlentities($result->FuelType); ?></li>
                   </ul>
-                  <a href="vehicle-details.php?vhid=<?php echo htmlentities($result->id); ?>" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+                  <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>" class="btn">View Details <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
                 </div>
+
+
               </div>
           <?php }
           } ?>
@@ -197,10 +191,9 @@ error_reporting(0);
 
         <!--Side-Bar-->
         <aside class="col-md-3 col-md-pull-9">
-
           <div class="sidebar_widget" style="width:330px">
             <div class="widget_heading">
-              <h5><i class="fa fa-car" aria-hidden="true"></i> Recently Listed Cars</h5>
+              <h5><i class="fa fa-car" aria-hidden="true" style="color:#04dbc0"></i> Recently Visited</h5>
             </div>
             <div class="recent_addedcars">
               <ul>
@@ -215,8 +208,9 @@ error_reporting(0);
                     <li class="gray-bg">
                       <div class="recent_post_img"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" alt="image"></a> </div>
                       <div class="recent_post_title"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><?php echo htmlentities($result->BrandName); ?> , <?php echo htmlentities($result->VehiclesTitle); ?></a>
-                        <p class="widget_price"><span>&#8369;</span><?php echo htmlentities($result->PricePerDay); ?> Per Day</p>
+                        <p class="widget_price"><i class="fa fa-inr" aria-hidden="true"></i><?php echo htmlentities($result->PricePerDay); ?> Per Day</p>
                       </div>
+
                     </li>
                 <?php }
                 } ?>

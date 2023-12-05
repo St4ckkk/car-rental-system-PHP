@@ -34,16 +34,18 @@
                     <li><a href="profile.php" style="font-size:14px">Profile Settings</a></li>
                     <li><a href="update-password.php" style="font-size:14px">Update Password</a></li>
                     <li><a href="my-booking.php" style="font-size:14px">My Cars</a></li>
-                    <li><a href="post-testimonial.php" style="font-size:14px">Testimonials</a></li>
+                    <li><a href="post-testimonial.php" style="font-size:14px">Reviews</a></li>
                     <li><a href="logout.php" style="font-size:14px">Sign Out</a></li>
 
 
-                  <?php } else { ?>
+                  <?php } 
+                  else { ?>
                     <!-- <li><a href="#loginform"  data-toggle="modal" data-dismiss="modal" style="font-size:13px">Profile Settings</a></li>
               <li><a href="#loginform"  data-toggle="modal" data-dismiss="modal" style="font-size:13px">Update Password</a></li>
             <li><a href="#loginform"  data-toggle="modal" data-dismiss="modal"  style="font-size:13px">My Booking</a></li>
             <li><a href="#loginform"  data-toggle="modal" data-dismiss="modal"  style="font-size:13px">Sign Out</a></li> -->
                   <?php } ?>
+                  
                 </ul>
               </li>
             </ul>
@@ -112,9 +114,8 @@
               <h4><b>QuicKars</b></h4>
             </a></li>
           <li><a href="index.php" style="margin-left:300px;">Home</a></li>
-          <li><a href="page.php?type=aboutus">About Us</a></li>
-          <li><a href="car-listing.php">Book Cars</a>
-          <li><a href="testimonial.php">Testimonials</a></li>
+          <li><a href="car-list.php">Book Cars</a>
+          <li><a href="reviews.php">Reviews</a></li>
           <li><a href="contact-us.php">Contact Us</a></li>
           <?php if (strlen($_SESSION['login']) == 0) {
             ?>

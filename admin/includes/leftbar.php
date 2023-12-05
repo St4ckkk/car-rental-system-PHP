@@ -24,10 +24,5 @@
 				Contacts</a></li>
 		<li><a href="reg-users.php"><i class="fa fa-users" style="color: whitesmoke;"></i> Reg Users</a></li>
 
-
-
-		<li><a href="manage-subscribers.php"><i class="fa fa-table" style="color: whitesmoke;"></i> Manage
-				Subscribers</a></li>
-
 	</ul>
 </nav>
