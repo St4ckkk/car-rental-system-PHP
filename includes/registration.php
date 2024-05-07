@@ -1,4 +1,5 @@
 <?php
+ob_end_flush();
 function isPasswordStrong($password)
 {
   return preg_match('/[A-Z]/', $password)        // at least one upper case
@@ -7,19 +8,17 @@ function isPasswordStrong($password)
     && preg_match('/\W/', $password)          // at least one special character
     && strlen($password) >= 8;                // at least 8 characters long
 }
-function logActivity($userId, $actionType, $description)
-{
-  global $dbh;
-  $sql = "INSERT INTO tbllogs (user_id, action_type, description, action_time) VALUES (:userId, :actionType, :description, NOW())";
-  $stmt = $dbh->prepare($sql);
-  $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
-  $stmt->bindParam(':actionType', $actionType, PDO::PARAM_STR);
-  $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-  $stmt->execute();
-}
-
-
 if (isset($_POST['signup'])) {
+  function logActivity($userId, $actionType, $description)
+  {
+    global $dbh;
+    $sql = "INSERT INTO tbllogs (user_id, action_type, description, action_time) VALUES (:userId, :actionType, :description, NOW())";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+    $stmt->bindParam(':actionType', $actionType, PDO::PARAM_STR);
+    $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+    $stmt->execute();
+  }
   $fname = $_POST['fullname'];
   $email = $_POST['emailid'];
   $mobile = $_POST['mobileno'];
