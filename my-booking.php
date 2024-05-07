@@ -113,7 +113,7 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php include('includes/sidebar.php'); ?>
 
                 <div class="col-md-6 col-sm-8">
-                  <div class="profile_wrap">
+                  <div class="profile_wrap" style="width: 700px;">
                     <h5 class="uppercase underline">My Bookings </h5>
                     <div class="my_vehicles_list">
                       <ul class="vehicle_listing">
@@ -133,9 +133,14 @@ if (strlen($_SESSION['login']) == 0) {
                               <div class="vehicle_title">
                                 <h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->vid); ?>""> <?php echo htmlentities($result->BrandName); ?> , <?php echo htmlentities($result->VehiclesTitle); ?></a></h6>
                   <p><b>From Date:</b> <?php echo htmlentities($result->FromDate); ?><br /> <b>To Date:</b> <?php echo htmlentities($result->ToDate); ?></p>
-                  <form method="post" action="delete-booking.php">
+                  <form method=" post" action="delete-booking.php">
                                     <input type="hidden" name="booking_id" value="<?php echo htmlentities($result->vid); ?>">
-                                    <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</button>
+                                    <?php if ($result->Status != 1) { ?> <!-- Assuming '1' is the status code for 'Confirmed' -->
+                                      <form method="post" action="delete-booking.php">
+                                        <input type="hidden" name="booking_id" value="<?php echo htmlentities($result->vid); ?>">
+                                        <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this booking?')">Delete</button>
+                                      </form>
+                                    <?php } ?>
                                     </form>
                               </div>
                               <?php if ($result->Status == 1) { ?>

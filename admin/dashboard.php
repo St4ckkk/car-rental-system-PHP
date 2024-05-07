@@ -5,7 +5,7 @@ include('includes/config.php');
 if (strlen($_SESSION['alogin']) == 0) {
 	header('location:index.php');
 } else {
-	?>
+?>
 	<!doctype html>
 	<html lang="en" class="no-js">
 
@@ -55,50 +55,40 @@ if (strlen($_SESSION['alogin']) == 0) {
 									<div class="row">
 										<div class="col-md-3">
 											<div class="panel panel-default">
-												<div class="panel-body bk-primary text-light" style="background-color: #7f53ac;
-background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);">
+												<div class="panel-body bk-success text-light" style="background-color: #28a745; background-image: linear-gradient(315deg, #28a745 0%, #72d689 74%);">
 													<div class="stat-panel text-center">
 														<?php
-														$sql = "SELECT id from tblusers ";
-														$query = $dbh->prepare($sql);
-														$query->execute();
-														$results = $query->fetchAll(PDO::FETCH_OBJ);
-														$regusers = $query->rowCount();
+														$sql_verified = "SELECT id FROM tblusers WHERE is_verified = 1";
+														$query_verified = $dbh->prepare($sql_verified);
+														$query_verified->execute();
+														$verified_users_count = $query_verified->rowCount();
 														?>
-														<div class="stat-panel-number h1 ">
-															<?php echo htmlentities($regusers); ?>
-														</div>
-														<div class="stat-panel-title text-uppercase">Reg Users</div>
+														<div class="stat-panel-number h1 "><?php echo htmlentities($verified_users_count); ?></div>
+														<div class="stat-panel-title text-uppercase">Verified Users</div>
 													</div>
 												</div>
-												<a href="reg-users.php" class="block-anchor panel-footer">Full Detail <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="verified-users.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
+
 										<div class="col-md-3">
 											<div class="panel panel-default">
-												<div class="panel-body bk-success text-light" style="background-color: #d5adc8;
-background-image: linear-gradient(315deg, #d5adc8 0%, #ff8489 74%);">
+												<div class="panel-body bk-danger text-light" style="background-color: #dc3545; background-image: linear-gradient(315deg, #dc3545 0%, #f79292 74%);">
 													<div class="stat-panel text-center">
 														<?php
-														$sql1 = "SELECT id from tblvehicles ";
-														$query1 = $dbh->prepare($sql1);
-														;
-														$query1->execute();
-														$results1 = $query1->fetchAll(PDO::FETCH_OBJ);
-														$totalvehicle = $query1->rowCount();
+														$sql_non_verified = "SELECT id FROM tblusers WHERE is_verified = 0";
+														$query_non_verified = $dbh->prepare($sql_non_verified);
+														$query_non_verified->execute();
+														$non_verified_users_count = $query_non_verified->rowCount();
 														?>
-														<div class="stat-panel-number h1 ">
-															<?php echo htmlentities($totalvehicle); ?>
-														</div>
-														<div class="stat-panel-title text-uppercase">Listed Vehicles</div>
+														<div class="stat-panel-number h1 "><?php echo htmlentities($non_verified_users_count); ?></div>
+														<div class="stat-panel-title text-uppercase">Non-Verified Users</div>
 													</div>
 												</div>
-												<a href="manage-vehicles.php"
-													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="non-verified-users.php" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
+
 										<div class="col-md-3">
 											<div class="panel panel-default">
 												<div class="panel-body bk-info text-light" style="background-color: #6b0f1a;
@@ -119,9 +109,7 @@ background-image: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);
 														<div class="stat-panel-title text-uppercase">Total Bookings</div>
 													</div>
 												</div>
-												<a href="manage-bookings.php"
-													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="manage-bookings.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 										<div class="col-md-3">
@@ -143,9 +131,7 @@ background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
 														<div class="stat-panel-title text-uppercase">Listed Brands</div>
 													</div>
 												</div>
-												<a href="manage-brands.php"
-													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="manage-brands.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 									</div>
@@ -158,31 +144,28 @@ background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
 
 					<div class="row">
 						<div class="col-md-12">
-
-
 							<div class="row">
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-3">
 											<div class="panel panel-default">
-												<div class="panel-body bk-primary text-light" style="background-color: #6a93cb;
-background-image: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);">
+												<div class="panel-body bk-success text-light" style="background-color: #d5adc8;
+background-image: linear-gradient(315deg, #d5adc8 0%, #ff8489 74%);">
 													<div class="stat-panel text-center">
 														<?php
-														$sql4 = "SELECT id from tblsubscribers ";
-														$query4 = $dbh->prepare($sql4);
-														$query4->execute();
-														$results4 = $query4->fetchAll(PDO::FETCH_OBJ);
-														$subscribers = $query4->rowCount();
+														$sql1 = "SELECT id from tblvehicles ";
+														$query1 = $dbh->prepare($sql1);;
+														$query1->execute();
+														$results1 = $query1->fetchAll(PDO::FETCH_OBJ);
+														$totalvehicle = $query1->rowCount();
 														?>
 														<div class="stat-panel-number h1 ">
-															<?php echo htmlentities($subscribers); ?>
+															<?php echo htmlentities($totalvehicle); ?>
 														</div>
-														<div class="stat-panel-title text-uppercase">Subscibers</div>
+														<div class="stat-panel-title text-uppercase">Listed Vehicles</div>
 													</div>
 												</div>
-												<a href="manage-subscribers.php" class="block-anchor panel-footer">Full
-													Detail <i class="fa fa-arrow-right"></i></a>
+												<a href="manage-vehicles.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 										<div class="col-md-3">
@@ -192,8 +175,7 @@ background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);">
 													<div class="stat-panel text-center">
 														<?php
 														$sql6 = "SELECT id from tblcontactusquery ";
-														$query6 = $dbh->prepare($sql6);
-														;
+														$query6 = $dbh->prepare($sql6);;
 														$query6->execute();
 														$results6 = $query6->fetchAll(PDO::FETCH_OBJ);
 														$query = $query6->rowCount();
@@ -204,9 +186,7 @@ background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);">
 														<div class="stat-panel-title text-uppercase">Queries</div>
 													</div>
 												</div>
-												<a href="manage-conactusquery.php"
-													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="manage-conactusquery.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 										<div class="col-md-3">
@@ -228,9 +208,7 @@ background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);">
 														<div class="stat-panel-title text-uppercase">Testimonials</div>
 													</div>
 												</div>
-												<a href="testimonials.php"
-													class="block-anchor panel-footer text-center">Full Detail &nbsp; <i
-														class="fa fa-arrow-right"></i></a>
+												<a href="testimonials.php" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
 											</div>
 										</div>
 
@@ -264,8 +242,7 @@ background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);">
 		<script src="js/main.js"></script>
 
 		<script>
-
-			window.onload = function () {
+			window.onload = function() {
 
 				// Line chart from swirlData for dashReport
 				var ctx = document.getElementById("dashReport").getContext("2d");
@@ -278,11 +255,15 @@ background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);">
 
 				// Pie Chart from doughutData
 				var doctx = document.getElementById("chart-area3").getContext("2d");
-				window.myDoughnut = new Chart(doctx).Pie(doughnutData, { responsive: true });
+				window.myDoughnut = new Chart(doctx).Pie(doughnutData, {
+					responsive: true
+				});
 
 				// Dougnut Chart from doughnutData
 				var doctx = document.getElementById("chart-area4").getContext("2d");
-				window.myDoughnut = new Chart(doctx).Doughnut(doughnutData, { responsive: true });
+				window.myDoughnut = new Chart(doctx).Doughnut(doughnutData, {
+					responsive: true
+				});
 
 			}
 		</script>

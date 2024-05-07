@@ -15,6 +15,15 @@ error_reporting(0);
   <meta name="description" content="">
   <title>Car Rental Portal | QuicKars</title>
   <!--Bootstrap -->
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Include Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="assets/css/style.css" type="text/css">
   <link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
@@ -23,19 +32,15 @@ error_reporting(0);
   <link href="assets/css/bootstrap-slider.min.css" rel="stylesheet">
   <link href="assets/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
-  <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all"
-    data-default-color="true" />
+  <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
   <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144"
-    href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114"
-    href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72"
-    href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png">
   <link rel="shortcut icon" href="assets/images/mainlogo.png">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -66,8 +71,7 @@ error_reporting(0);
         </p>
       </div>
       <div class="button">
-        <a href="#cars" class="btn">Explore More <span class="angle_arrow"><i class="fa fa-angle-right"
-              aria-hidden="true"></i></span></a>
+        <a href="#cars" class="btn">Explore More <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
       </div>
     </div>
 
@@ -100,13 +104,10 @@ error_reporting(0);
               $cnt = 1;
               if ($query->rowCount() > 0) {
                 foreach ($results as $result) {
-                  ?>
+              ?>
                   <div class="col-list-3">
                     <div class="recent-car-list">
-                      <div class="car-info-box"><a
-                          href="vehicle-info.php?vhid=<?php echo htmlentities($result->id); ?>"><img
-                            src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>"
-                            class="img-responsive" alt="image"></a>
+                      <div class="car-info-box"><a href="vehicle-info.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="image"></a>
                         <ul class="images">
                           <li>
                             <h3>
@@ -117,7 +118,7 @@ error_reporting(0);
                       </div>
                     </div>
                   </div>
-                <?php }
+              <?php }
               } ?>
 
             </div>
@@ -184,8 +185,7 @@ error_reporting(0);
 
 
   <!--Back to top-->
-  <div id="back-top" class="back-top"> <a href="#top" style="background-color: #04dbc0;"><i class="fa fa-angle-up"
-        aria-hidden="true"></i> </a> </div>
+  <div id="back-top" class="back-top"> <a href="#top" style="background-color: #04dbc0;"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
   <!--/Back to top-->
 
   <!--Login-Form -->

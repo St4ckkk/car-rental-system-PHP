@@ -1,25 +1,50 @@
 <?php
+session_start();
+include('includes/config.php');
+
 if (isset($_POST['login'])) {
   $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $sql = "SELECT EmailId,Password,FullName FROM tblusers WHERE EmailId=:email and Password=:password";
+  $password = md5($_POST['password']); // Consider upgrading to password_hash() and password_verify()
+
+  // Query to check if the email and password are correct
+  $sql = "SELECT id, EmailId, Password, FullName, is_verified FROM tblusers WHERE EmailId = :email AND Password = :password";
   $query = $dbh->prepare($sql);
   $query->bindParam(':email', $email, PDO::PARAM_STR);
   $query->bindParam(':password', $password, PDO::PARAM_STR);
   $query->execute();
-  $results = $query->fetchAll(PDO::FETCH_OBJ);
-  if ($query->rowCount() > 0) {
-    $_SESSION['login'] = $_POST['email'];
-    $_SESSION['fname'] = $results->FullName;
-    $currentpage = $_SERVER['REQUEST_URI'];
-    echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
-  } else {
+  $result = $query->fetch(PDO::FETCH_OBJ);
 
-    echo "<script>alert('Invalid Details');</script>";
+  if ($result) {
+    if ($result->is_verified == 1) {
+      $_SESSION['login'] = $email;
+      $_SESSION['fname'] = $result->FullName;
+      $_SESSION['userid'] = $result->id; // Store user ID in session
+      logActivity($result->id, "Login Success", "User logged in successfully");
+      $currentpage = $_SERVER['REQUEST_URI'];
+      echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
+    } else {
+      echo "<script>alert('Please wait for confirmation of your account. A verification email will be sent to you');</script>";
+      logActivity($result->id, "Login Failed", "Attempt to log in to an unverified account");
+    }
+  } else {
+    echo "<script>alert('Invalid email or password. Please try again.');</script>";
+    logActivity(null, "Login Failed", "Invalid email or password attempt");
   }
 }
 
+function logActivity($userId, $actionType, $description)
+{
+  global $dbh;
+  $sql = "INSERT INTO tbllogs (action_type, description, user_id, action_time) VALUES (:actionType, :description, :userId, NOW())";
+  $stmt = $dbh->prepare($sql);
+  $stmt->bindParam(':actionType', $actionType, PDO::PARAM_STR);
+  $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+  $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+  $stmt->execute();
+}
 ?>
+
+
 <style type="text/css">
   .form-group .btn {
     background: #04dbc0;
