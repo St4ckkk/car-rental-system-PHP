@@ -107,7 +107,7 @@ function logActivity($userId, $actionType, $description)
       </div>
       <div class="modal-footer text-center">
         <p>Don't have an account? <a href="#signupform" data-toggle="modal" data-dismiss="modal" class="last">Signup Here</a></p>
-        <p><a href="#forgotpassword" data-toggle="modal" data-dismiss="modal" class="last">Forgot Password ?</a></p>
+        <p><a href="forgotpassword.php" data-toggle="modal" data-dismiss="modal" class="last">Forgot Password ?</a></p>
       </div>
     </div>
   </div>
