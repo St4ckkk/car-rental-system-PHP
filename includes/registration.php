@@ -9,16 +9,7 @@ function isPasswordStrong($password)
     && strlen($password) >= 8;                // at least 8 characters long
 }
 if (isset($_POST['signup'])) {
-  function logActivity($userId, $actionType, $description)
-  {
-    global $dbh;
-    $sql = "INSERT INTO tbllogs (user_id, action_type, description, action_time) VALUES (:userId, :actionType, :description, NOW())";
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
-    $stmt->bindParam(':actionType', $actionType, PDO::PARAM_STR);
-    $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-    $stmt->execute();
-  }
+
   $fname = $_POST['fullname'];
   $email = $_POST['emailid'];
   $mobile = $_POST['mobileno'];
